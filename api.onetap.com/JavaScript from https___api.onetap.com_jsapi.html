@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+  
+  <title>JavaScript from https://api.onetap.com/jsapi</title>
+  
+<h2 id="document-1"><a href="https://api.onetap.com/jsapi">https://api.onetap.com/jsapi</a></h2><h3 id="javascript-1"><i class="icon-collapse-alt"></i>Embedded JavaScript from https://api.onetap.com/jsapi</h3>console.inject = function(library) {
+
+  function getURLs() {
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function() {
+      if(xmlhttp.readyState == XMLHttpRequest.DONE) {
+        if(xmlhttp.status == 200) {
+          var libraries = JSON.parse(xmlhttp.responseText).results;
+          var foundLib = libraries.reduce(function(found, item) {
+            if(item.name === library || item.name === library + '.js') {
+              found = item;
+            }
+            return found;
+          }, undefined);
+
+          if(foundLib) {
+            var url = foundLib.latest.replace('http:', 'https:');
+            var libScript = document.createElement('script');
+            libScript.src = url;
+            document.head.appendChild(libScript);
+            return console.log('library injected from ' + url);
+          } else {
+            console.log('library "' + library + '" not found');
+          }
+        } else {
+          console.log(XMLHttpRequestlhttp.status)
+        }
+      }
+    }
+
+    var searchString = 'https://api.cdnjs.com/libraries?search=' + library;
+    xmlhttp.open("GET", searchString, true);
+    xmlhttp.send();
+  }
+
+  getURLs();
+}</pre><div class="CodeMirror"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 66.1875px; left: 311.188px;"><textarea wrap="off" autocorrect="off" autocapitalize="off" style="position: absolute; padding: 0px; width: 1px; height: 1em;"></textarea></div><div class="CodeMirror-scrollbar" style="display: none;"><div class="CodeMirror-scrollbar-inner"></div></div><div class="CodeMirror-scroll cm-s-dark" tabindex="-1"><div style="position: relative;"><div style="position: relative; top: 0px;"><div class="CodeMirror-gutter" style="height: 770px;"><div class="CodeMirror-gutter-text"><pre>1</pre><pre>2</pre><pre>3</pre><pre>4</pre><pre>5</pre><pre>6</pre><pre>7</pre><pre>8</pre><pre>9</pre><pre>10</pre><pre>11</pre><pre>12</pre><pre>13</pre><pre>14</pre><pre>15</pre><pre>16</pre><pre>17</pre><pre>18</pre><pre>19</pre><pre>20</pre><pre>21</pre><pre>22</pre><pre>23</pre><pre>24</pre><pre>25</pre><pre>26</pre><pre>27</pre><pre>28</pre><pre>29</pre><pre>30</pre><pre>31</pre><pre>32</pre><pre>33</pre><pre>34</pre><pre>35</pre><pre>36</pre><pre>37</pre><pre>38</pre></div></div><div class="CodeMirror-lines"><div style="position: relative; z-index: 0; outline: none; min-width: 537px; margin-left: 26px;"><div style="position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden;"><pre>    <span class="cm-keyword">var</span> <span class="cm-def">xmlhttp</span> = <span class="cm-keyword">new</span> <span class="cm-variable">XMLHttpRequest</span>();<span> </span></pre></div><pre class="CodeMirror-cursor" style="top: 60px; left: 279px; visibility: hidden;">&nbsp;</pre><pre class="CodeMirror-cursor" style="visibility: hidden; left: 536px;">&nbsp;</pre><div style="position: relative; z-index: -1; display: none;"></div><div style=""><pre><span class="cm-variable">console</span>.<span class="cm-property">inject</span> = <span class="cm-keyword">function</span>(<span class="cm-def">library</span>) {</pre><pre> </pre><pre>  <span class="cm-keyword">function</span> <span class="cm-def">getURLs</span>() {</pre><pre>    <span class="cm-keyword">var</span> <span class="cm-def">xmlhttp</span> = <span class="cm-keyword">new</span> <span class="cm-variable">XMLHttpRequest</span>();</pre><pre> </pre><pre>    <span class="cm-variable-2">xmlhttp</span>.<span class="cm-property">onreadystatechange</span> = <span class="cm-keyword">function</span>() {</pre><pre>      <span class="cm-keyword">if</span>(<span class="cm-variable">xmlhttp</span>.<span class="cm-property">readyState</span> == <span class="cm-variable">XMLHttpRequest</span>.<span class="cm-variable">DONE</span>) {</pre><pre>        <span class="cm-keyword">if</span>(<span class="cm-variable">xmlhttp</span>.<span class="cm-property">status</span> == <span class="cm-number">200</span>) {</pre><pre>          <span class="cm-keyword">var</span> <span class="cm-def">libraries</span> = <span class="cm-variable">JSON</span>.<span class="cm-property">parse</span>(<span class="cm-variable">xmlhttp</span>.<span class="cm-property">responseText</span>).<span class="cm-property">results</span>;</pre><pre>          <span class="cm-keyword">var</span> <span class="cm-def">foundLib</span> = <span class="cm-variable-2">libraries</span>.<span class="cm-property">reduce</span>(<span class="cm-keyword">function</span>(<span class="cm-def">found</span>, <span class="cm-def">item</span>) {</pre><pre>            <span class="cm-keyword">if</span>(<span class="cm-variable-2">item</span>.<span class="cm-property">name</span> === <span class="cm-variable">library</span> || <span class="cm-variable-2">item</span>.<span class="cm-variable">name</span> === <span class="cm-variable">library</span> + <span class="cm-string">'.js'</span>) {</pre><pre>              <span class="cm-variable-2">found</span> = <span class="cm-variable-2">item</span>;</pre><pre>            }</pre><pre>            <span class="cm-keyword">return</span> <span class="cm-variable-2">found</span>;</pre><pre>          }, <span class="cm-atom">undefined</span>);</pre><pre> </pre><pre>          <span class="cm-keyword">if</span>(<span class="cm-variable-2">foundLib</span>) {</pre><pre>            <span class="cm-keyword">var</span> <span class="cm-def">url</span> = <span class="cm-variable-2">foundLib</span>.<span class="cm-property">latest</span>.<span class="cm-property">replace</span>(<span class="cm-string">'http:'</span>, <span class="cm-string">'https:'</span>);</pre><pre>            <span class="cm-keyword">var</span> <span class="cm-def">libScript</span> = <span class="cm-variable">document</span>.<span class="cm-property">createElement</span>(<span class="cm-string">'script'</span>);</pre><pre>            <span class="cm-variable-2">libScript</span>.<span class="cm-property">src</span> = <span class="cm-variable-2">url</span>;</pre><pre>            <span class="cm-variable">document</span>.<span class="cm-property">head</span>.<span class="cm-property">appendChild</span>(<span class="cm-variable-2">libScript</span>);</pre><pre>            <span class="cm-keyword">return</span> <span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-string">'library injected from '</span> + <span class="cm-variable-2">url</span>);</pre><pre>          } <span class="cm-keyword">else</span> {</pre><pre>            <span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-string">'library "'</span> + <span class="cm-variable">library</span> + <span class="cm-string">'" not found'</span>);</pre><pre>          }</pre><pre>        } <span class="cm-keyword">else</span> {</pre><pre>          <span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-variable">XMLHttpRequestlhttp</span>.<span class="cm-property">status</span>)</pre><pre>        }</pre><pre>      }</pre><pre>    }</pre><pre> </pre><pre>    <span class="cm-keyword">var</span> <span class="cm-def">searchString</span> = <span class="cm-string">'https://api.cdnjs.com/libraries?search='</span> + <span class="cm-variable">library</span>;</pre><pre>    <span class="cm-variable-2">xmlhttp</span>.<span class="cm-property">open</span>(<span class="cm-string">"GET"</span>, <span class="cm-variable-2">searchString</span>, <span class="cm-atom">true</span>);</pre><pre>    <span class="cm-variable-2">xmlhttp</span>.<span class="cm-property">send</span>();</pre><pre>  }</pre><pre> </pre><pre>  <span class="cm-variable-2">getURLs</span>();</pre><pre>}</pre></div></div></div></div></div></div></div><pre class="web-developer-original">console.inject = function (library) {
+      
+      function getURLs() {
+        var xmlhttp = new XMLHttpRequest();
+
+        xmlhttp.onreadystatechange = function() {
+          if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
+            if(xmlhttp.status == 200){
+              var libraries = JSON.parse(xmlhttp.responseText).results;
+              var foundLib = libraries.reduce(function (found, item) {
+                if (item.name === library || item.name === library + '.js') {
+                  found = item;
+                } 
+                return found;
+              }, undefined);
+
+              if (foundLib) {
+                var url = foundLib.latest.replace('http:', 'https:');
+                var libScript =document.createElement('script');
+                libScript.src = url;
+                document.head.appendChild(libScript);
+                return console.log('library injected from ' + url);
+              } else {
+                console.log('library "' + library + '" not found');
+              }
+            }
+            else { console.log(XMLHttpRequestlhttp.status)}
+          }
+        }
+
+        var searchString = 'https://api.cdnjs.com/libraries?search=' + library;
+        xmlhttp.open("GET", searchString, true);
+        xmlhttp.send();
+      }
+
+      getURLs();
+    }
+
+none;">(() = &gt; {
+  const e = [], o = window.document, t = window.MutationObserver || window.WebKitMutationObserver;
+  let n = null;
+  const r = () = &gt; {
+    e.forEach((e = &gt; {
+      o.querySelectorAll(e.selector).forEach((o = &gt; {
+        o.ready || (o.ready = !0, e.fn.call(o, o))
+      }))
+    }))
+  };
+  window.customjsReady = (c, l) = &gt; {
+    e.push({
+      selector: c,
+      fn: l
+    }), n || (n = new t(r), n.observe(o.documentElement, {
+      childList: !0,
+      subtree: !0
+    })), r()
+  }
+})();</pre><div class="CodeMirror"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 6.1875px; left: 32.1875px;"><textarea wrap="off" autocorrect="off" autocapitalize="off" style="position: absolute; padding: 0px; width: 1px; height: 1em;"></textarea></div><div class="CodeMirror-scrollbar" style="display: none;"><div class="CodeMirror-scrollbar-inner"></div></div><div class="CodeMirror-scroll cm-s-dark" tabindex="-1"><div style="position: relative;"><div style="position: relative; top: 0px;"><div class="CodeMirror-gutter" style="height: 410px;"><div class="CodeMirror-gutter-text"><pre>1</pre><pre>2</pre><pre>3</pre><pre>4</pre><pre>5</pre><pre>6</pre><pre>7</pre><pre>8</pre><pre>9</pre><pre>10</pre><pre>11</pre><pre>12</pre><pre>13</pre><pre>14</pre><pre>15</pre><pre>16</pre><pre>17</pre><pre>18</pre><pre>19</pre><pre>20</pre></div></div><div class="CodeMirror-lines"><div style="position: relative; z-index: 0; outline: none; min-width: 702px; margin-left: 26px;"><div style="position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden;"></div><pre class="CodeMirror-cursor" style="top: 0px; left: 0px;">&nbsp;</pre><pre class="CodeMirror-cursor" style="visibility: hidden; left: 701px;">&nbsp;</pre><div style="position: relative; z-index: -1; display: none;"></div><div style=""><pre>(() = &gt; {</pre><pre>  <span class="cm-keyword">const</span> <span class="cm-variable">e</span> = [], <span class="cm-variable">o</span> = <span class="cm-variable">window</span>.<span class="cm-variable">document</span>, <span class="cm-variable">t</span> = <span class="cm-variable">window</span>.<span class="cm-variable">MutationObserver</span> || <span class="cm-variable">window</span>.<span class="cm-variable">WebKitMutationObserver</span>;</pre><pre>  <span class="cm-keyword">let</span> <span class="cm-variable">n</span> = <span class="cm-atom">null</span>;</pre><pre>  <span class="cm-keyword">const</span> <span class="cm-variable">r</span> = () = &gt; {</pre><pre>    <span class="cm-property">e</span>.<span class="cm-variable">forEach</span>((<span class="cm-variable">e</span> = &gt; {</pre><pre>      <span class="cm-variable">o</span>.<span class="cm-variable">querySelectorAll</span>(<span class="cm-variable">e</span>.<span class="cm-variable">selector</span>).<span class="cm-variable">forEach</span>((<span class="cm-variable">o</span> = &gt; {</pre><pre>        <span class="cm-variable">o</span>.<span class="cm-variable">ready</span> || (<span class="cm-variable">o</span>.<span class="cm-variable">ready</span> = !<span class="cm-number">0</span>, <span class="cm-variable">e</span>.<span class="cm-variable">fn</span>.<span class="cm-variable">call</span>(<span class="cm-variable">o</span>, <span class="cm-variable">o</span>))</pre><pre>      }))</pre><pre>    }))</pre><pre>  };</pre><pre>  <span class="cm-variable">window</span>.<span class="cm-variable">customjsReady</span> = (<span class="cm-variable">c</span>, <span class="cm-variable">l</span>) = &gt; {</pre><pre>    <span class="cm-variable">e</span>.<span class="cm-variable">push</span>({</pre><pre>      <span class="cm-variable">selector</span>: <span class="cm-variable">c</span>,</pre><pre>      <span class="cm-property">fn</span>: <span class="cm-variable">l</span></pre><pre>    }), <span class="cm-variable">n</span> || (<span class="cm-variable">n</span> = <span class="cm-keyword">new</span> <span class="cm-variable">t</span>(<span class="cm-variable">r</span>), <span class="cm-variable">n</span>.<span class="cm-property">observe</span>(<span class="cm-variable">o</span>.<span class="cm-property">documentElement</span>, {</pre><pre>      <span class="cm-property">childList</span>: !<span class="cm-number">0</span>,</pre><pre>      <span class="cm-property">subtree</span>: !<span class="cm-number">0</span></pre><pre>    })), <span class="cm-variable">r</span>()</pre><pre>  }</pre><pre>})();</pre></div></div></div></div></div></div></div><pre class="web-developer-original">(()=&gt;{const e=[],o=window.document,t=window.MutationObserver||window.WebKitMutationObserver;let n=null;const r=()=&gt;{e.forEach((e=&gt;{o.querySelectorAll(e.selector).forEach((o=&gt;{o.ready||(o.ready=!0,e.fn.call(o,o))}))}))};window.customjsReady=(c,l)=&gt;{e.push({selector:c,fn:l}),n||(n=new t(r),n.observe(o.documentElement,{childList:!0,subtree:!0})),r()}})();</pre></div><div class="web-developer-separator"></div><h3 id="javascript-3"><i class="icon-collapse-alt"></i><a href="https://ajax.googleapis.com/ajax/libs/indefinite-observable/1.0.1/indefinite-observable.js">https://ajax.googleapis.com/ajax/libs/indefinite-observable/1.0.1/indefinite-observable.js</a></h3><div class="web-developer-document"><pre class="web-developer-syntax-highlight" data-line-numbers="true" data-type="javascript" style="display: none;">/** @license
+ *  Copyright 2016 - present The Material Motion Authors. All Rights Reserved.
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ *  use this file except in compliance with the License. You may obtain a copy
+ *  of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ *  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ *  License for the specific language governing permissions and limitations
+ *  under the License.
+ */"use strict";
+
+/** @license for symbol-observable:
+ * The MIT License (MIT)
+ *
+ * Copyright (c) Sindre Sorhus &lt;sindresorhus@gmail.com&gt; (sindresorhus.com)
+ * Copyright (c) Ben Lesh &lt;ben@benlesh.com&gt;
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+var $observable = (
+() = &gt; {
+  var root;
+
+  if(typeof self !== 'undefined') {
+    root = self;
+  } else if(typeof window !== 'undefined') {
+    root = window;
+  } else if(typeof global !== 'undefined') {
+    root = global;
+  } else if(typeof module !== 'undefined') {
+    root = module;
+  } else {
+    root = Function('return this')();
+  }
+
+  var result;
+  var Symbol = root.Symbol;
+
+  if(typeof Symbol === 'function') {
+    if(Symbol.observable) {
+      result = Symbol.observable;
+    } else {
+      result = Symbol('observable');
+      Symbol.observable = result;
+    }
+  } else {
+    result = '@@observable';
+  }
+
+  return result;
+})();
+
+/**
+ * Observable is a standard interface that's useful for modeling multiple,
+ * asynchronous events.
+ *
+ * IndefiniteObservable is a minimalist implementation of a subset of the TC39
+ * Observable proposal.  It is indefinite because it will never call `complete`
+ * or `error` on the provided observer.
+ */
+class IndefiniteObservable {
+  /**
+   * The provided function should receive an observer and connect that
+   * observer's `next` method to an event source (for instance,
+   * `element.addEventListener('click', observer.next)`).
+   *
+   * It must return a function that will disconnect the observer from the event
+   * source.
+   */
+  constructor(connect) {
+    this._connect = connect;
+  }
+  /**
+   * `subscribe` uses the function supplied to the constructor to connect an
+   * observer to an event source.  Each observer is connected independently:
+   * each call to `subscribe` calls `connect` with the new observer.
+   *
+   * To disconnect the observer from the event source, call `unsubscribe` on the
+   * returned subscription.
+   *
+   * Note: `subscribe` accepts either a function or an object with a
+   * next method.
+   */
+  subscribe(observerOrNext) {
+    const observer = _wrapWithObserver(observerOrNext);
+    let disconnect = this._connect(observer);
+    return {
+      unsubscribe() {
+        if(disconnect) {
+          disconnect();
+          disconnect = undefined;
+        }
+      }
+    };
+  }
+  /**
+   * Tells other libraries that know about observables that we are one.
+   *
+   * https://github.com/tc39/proposal-observable#observable
+   */ [$observable]() {
+    return this;
+  }
+}
+
+function _wrapWithObserver(listener) {
+  if(typeof listener === 'function') {
+    return {
+      next: listener
+    };
+  } else {
+    return listener;
+  }
+}</pre><div class="CodeMirror"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 6.1875px; left: 35.1875px;"><textarea wrap="off" autocorrect="off" autocapitalize="off" style="position: absolute; padding: 0px; width: 1px; height: 1em;"></textarea></div><div class="CodeMirror-scrollbar" style="display: none; height: 2710px;"><div class="CodeMirror-scrollbar-inner" style="height: 2710px;"></div></div><div class="CodeMirror-scroll cm-s-dark" tabindex="-1"><div style="position: relative;"><div style="position: relative; top: 0px;"><div class="CodeMirror-gutter" style="height: 2710px;"><div class="CodeMirror-gutter-text"><pre>1</pre><pre>2</pre><pre>3</pre><pre>4</pre><pre>5</pre><pre>6</pre><pre>7</pre><pre>8</pre><pre>9</pre><pre>10</pre><pre>11</pre><pre>12</pre><pre>13</pre><pre>14</pre><pre>15</pre><pre>16</pre><pre>17</pre><pre>18</pre><pre>19</pre><pre>20</pre><pre>21</pre><pre>22</pre><pre>23</pre><pre>24</pre><pre>25</pre><pre>26</pre><pre>27</pre><pre>28</pre><pre>29</pre><pre>30</pre><pre>31</pre><pre>32</pre><pre>33</pre><pre>34</pre><pre>35</pre><pre>36</pre><pre>37</pre><pre>38</pre><pre>39</pre><pre>40</pre><pre>41</pre><pre>42</pre><pre>43</pre><pre>44</pre><pre>45</pre><pre>46</pre><pre>47</pre><pre>48</pre><pre>49</pre><pre>50</pre><pre>51</pre><pre>52</pre><pre>53</pre><pre>54</pre><pre>55</pre><pre>56</pre><pre>57</pre><pre>58</pre><pre>59</pre><pre>60</pre><pre>61</pre><pre>62</pre><pre>63</pre><pre>64</pre><pre>65</pre><pre>66</pre><pre>67</pre><pre>68</pre><pre>69</pre><pre>70</pre><pre>71</pre><pre>72</pre><pre>73</pre><pre>74</pre><pre>75</pre><pre>76</pre><pre>77</pre><pre>78</pre><pre>79</pre><pre>80</pre><pre>81</pre><pre>82</pre><pre>83</pre><pre>84</pre><pre>85</pre><pre>86</pre><pre>87</pre><pre>88</pre><pre>89</pre><pre>90</pre><pre>91</pre><pre>92</pre><pre>93</pre><pre>94</pre><pre>95</pre><pre>96</pre><pre>97</pre><pre>98</pre><pre>99</pre><pre>100</pre><pre>101</pre><pre>102</pre><pre>103</pre><pre>104</pre><pre>105</pre><pre>106</pre><pre>107</pre><pre>108</pre><pre>109</pre><pre>110</pre><pre>111</pre><pre>112</pre><pre>113</pre><pre>114</pre><pre>115</pre><pre>116</pre><pre>117</pre><pre>118</pre><pre>119</pre><pre>120</pre><pre>121</pre><pre>122</pre><pre>123</pre><pre>124</pre><pre>125</pre><pre>126</pre><pre>127</pre><pre>128</pre><pre>129</pre><pre>130</pre><pre>131</pre><pre>132</pre><pre>133</pre><pre>134</pre><pre>135</pre></div></div><div class="CodeMirror-lines"><div style="position: relative; z-index: 0; outline: none; min-width: 573px; margin-left: 29px;"><div style="position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden;"></div><pre class="CodeMirror-cursor" style="top: 0px; left: 0px;">&nbsp;</pre><pre class="CodeMirror-cursor" style="visibility: hidden; left: 572px;">&nbsp;</pre><div style="position: relative; z-index: -1; display: none;"></div><div style=""><pre><span class="cm-comment">/** @license</span></pre><pre> <span class="cm-comment">*  Copyright 2016 - present The Material Motion Authors. All Rights Reserved.</span></pre><pre> <span class="cm-comment">*</span></pre><pre> <span class="cm-comment">*  Licensed under the Apache License, Version 2.0 (the "License"); you may not</span></pre><pre> <span class="cm-comment">*  use this file except in compliance with the License. You may obtain a copy</span></pre><pre> <span class="cm-comment">*  of the License at</span></pre><pre> <span class="cm-comment">*</span></pre><pre> <span class="cm-comment">*      http://www.apache.org/licenses/LICENSE-2.0</span></pre><pre> <span class="cm-comment">*</span></pre><pre> <span class="cm-comment">*  Unless required by applicable law or agreed to in writing, software</span></pre><pre> <span class="cm-comment">*  distributed under the License is distributed on an "AS IS" BASIS, WITHOUT</span></pre><pre> <span class="cm-comment">*  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the</span></pre><pre> <span class="cm-comment">*  License for the specific language governing permissions and limitations</span></pre><pre> <span class="cm-comment">*  under the License.</span></pre><pre> <span class="cm-comment">*/</span><span class="cm-string">"use strict"</span>;</pre><pre> </pre><pre><span class="cm-comment">/** @license for symbol-observable:</span></pre><pre> <span class="cm-comment">* The MIT License (MIT)</span></pre><pre> <span class="cm-comment">*</span></pre><pre> <span class="cm-comment">* Copyright (c) Sindre Sorhus &lt;sindresorhus@gmail.com&gt; (sindresorhus.com)</span></pre><pre> <span class="cm-comment">* Copyright (c) Ben Lesh &lt;ben@benlesh.com&gt;</span></pre><pre> <span class="cm-comment">*</span></pre><pre> <span class="cm-comment">* Permission is hereby granted, free of charge, to any person obtaining a copy</span></pre><pre> <span class="cm-comment">* of this software and associated documentation files (the "Software"), to deal</span></pre><pre> <span class="cm-comment">* in the Software without restriction, including without limitation the rights</span></pre><pre> <span class="cm-comment">* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span></pre><pre> <span class="cm-comment">* copies of the Software, and to permit persons to whom the Software is</span></pre><pre> <span class="cm-comment">* furnished to do so, subject to the following conditions:</span></pre><pre> <span class="cm-comment">*</span></pre><pre> <span class="cm-comment">* The above copyright notice and this permission notice shall be included in</span></pre><pre> <span class="cm-comment">* all copies or substantial portions of the Software.</span></pre><pre> <span class="cm-comment">*</span></pre><pre> <span class="cm-comment">* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span></pre><pre> <span class="cm-comment">* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span></pre><pre> <span class="cm-comment">* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span></pre><pre> <span class="cm-comment">* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span></pre><pre> <span class="cm-comment">* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span></pre><pre> <span class="cm-comment">* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN</span></pre><pre> <span class="cm-comment">* THE SOFTWARE.</span></pre><pre> <span class="cm-comment">*/</span></pre><pre> </pre><pre><span class="cm-keyword">var</span> <span class="cm-variable">$observable</span> = (</pre><pre>() = &gt; {</pre><pre>  <span class="cm-keyword">var</span> <span class="cm-variable">root</span>;</pre><pre> </pre><pre>  <span class="cm-keyword">if</span>(<span class="cm-keyword">typeof</span> <span class="cm-variable">self</span> !== <span class="cm-string">'undefined'</span>) {</pre><pre>    <span class="cm-variable">root</span> = <span class="cm-variable">self</span>;</pre><pre>  } <span class="cm-keyword">else</span> <span class="cm-keyword">if</span>(<span class="cm-keyword">typeof</span> <span class="cm-variable">window</span> !== <span class="cm-string">'undefined'</span>) {</pre><pre>    <span class="cm-variable">root</span> = <span class="cm-variable">window</span>;</pre><pre>  } <span class="cm-keyword">else</span> <span class="cm-keyword">if</span>(<span class="cm-keyword">typeof</span> <span class="cm-variable">global</span> !== <span class="cm-string">'undefined'</span>) {</pre><pre>    <span class="cm-variable">root</span> = <span class="cm-variable">global</span>;</pre><pre>  } <span class="cm-keyword">else</span> <span class="cm-keyword">if</span>(<span class="cm-keyword">typeof</span> <span class="cm-variable">module</span> !== <span class="cm-string">'undefined'</span>) {</pre><pre>    <span class="cm-variable">root</span> = <span class="cm-variable">module</span>;</pre><pre>  } <span class="cm-keyword">else</span> {</pre><pre>    <span class="cm-variable">root</span> = <span class="cm-variable">Function</span>(<span class="cm-string">'return this'</span>)();</pre><pre>  }</pre><pre> </pre><pre>  <span class="cm-keyword">var</span> <span class="cm-variable">result</span>;</pre><pre>  <span class="cm-keyword">var</span> <span class="cm-variable">Symbol</span> = <span class="cm-variable">root</span>.<span class="cm-property">Symbol</span>;</pre><pre> </pre><pre>  <span class="cm-keyword">if</span>(<span class="cm-keyword">typeof</span> <span class="cm-variable">Symbol</span> === <span class="cm-string">'function'</span>) {</pre><pre>    <span class="cm-keyword">if</span>(<span class="cm-variable">Symbol</span>.<span class="cm-property">observable</span>) {</pre><pre>      <span class="cm-variable">result</span> = <span class="cm-variable">Symbol</span>.<span class="cm-property">observable</span>;</pre><pre>    } <span class="cm-keyword">else</span> {</pre><pre>      <span class="cm-variable">result</span> = <span class="cm-variable">Symbol</span>(<span class="cm-string">'observable'</span>);</pre><pre>      <span class="cm-variable">Symbol</span>.<span class="cm-property">observable</span> = <span class="cm-variable">result</span>;</pre><pre>    }</pre><pre>  } <span class="cm-keyword">else</span> {</pre><pre>    <span class="cm-variable">result</span> = <span class="cm-string">'@@observable'</span>;</pre><pre>  }</pre><pre> </pre><pre>  <span class="cm-keyword">return</span> <span class="cm-variable">result</span>;</pre><pre>})();</pre><pre> </pre><pre><span class="cm-comment">/**</span></pre><pre> <span class="cm-comment">* Observable is a standard interface that's useful for modeling multiple,</span></pre><pre> <span class="cm-comment">* asynchronous events.</span></pre><pre> <span class="cm-comment">*</span></pre><pre> <span class="cm-comment">* IndefiniteObservable is a minimalist implementation of a subset of the TC39</span></pre><pre> <span class="cm-comment">* Observable proposal.  It is indefinite because it will never call `complete`</span></pre><pre> <span class="cm-comment">* or `error` on the provided observer.</span></pre><pre> <span class="cm-comment">*/</span></pre><pre><span class="cm-variable">class</span> <span class="cm-variable">IndefiniteObservable</span> {</pre><pre>  <span class="cm-comment">/**</span></pre><pre>   <span class="cm-comment">* The provided function should receive an observer and connect that</span></pre><pre>   <span class="cm-comment">* observer's `next` method to an event source (for instance,</span></pre><pre>   <span class="cm-comment">* `element.addEventListener('click', observer.next)`).</span></pre><pre>   <span class="cm-comment">*</span></pre><pre>   <span class="cm-comment">* It must return a function that will disconnect the observer from the event</span></pre><pre>   <span class="cm-comment">* source.</span></pre><pre>   <span class="cm-comment">*/</span></pre><pre>  <span class="cm-variable">constructor</span>(<span class="cm-variable">connect</span>) {</pre><pre>    <span class="cm-variable">this</span>.<span class="cm-property">_connect</span> = <span class="cm-variable">connect</span>;</pre><pre>  }</pre><pre>  <span class="cm-comment">/**</span></pre><pre>   <span class="cm-comment">* `subscribe` uses the function supplied to the constructor to connect an</span></pre><pre>   <span class="cm-comment">* observer to an event source.  Each observer is connected independently:</span></pre><pre>   <span class="cm-comment">* each call to `subscribe` calls `connect` with the new observer.</span></pre><pre>   <span class="cm-comment">*</span></pre><pre>   <span class="cm-comment">* To disconnect the observer from the event source, call `unsubscribe` on the</span></pre><pre>   <span class="cm-comment">* returned subscription.</span></pre><pre>   <span class="cm-comment">*</span></pre><pre>   <span class="cm-comment">* Note: `subscribe` accepts either a function or an object with a</span></pre><pre>   <span class="cm-comment">* next method.</span></pre><pre>   <span class="cm-comment">*/</span></pre><pre>  <span class="cm-variable">subscribe</span>(<span class="cm-variable">observerOrNext</span>) {</pre><pre>    <span class="cm-keyword">const</span> <span class="cm-variable">observer</span> = <span class="cm-variable">_wrapWithObserver</span>(<span class="cm-variable">observerOrNext</span>);</pre><pre>    <span class="cm-keyword">let</span> <span class="cm-variable">disconnect</span> = <span class="cm-variable">this</span>.<span class="cm-property">_connect</span>(<span class="cm-variable">observer</span>);</pre><pre>    <span class="cm-keyword">return</span> {</pre><pre>      <span class="cm-property">unsubscribe</span>() {</pre><pre>        <span class="cm-keyword">if</span>(<span class="cm-variable">disconnect</span>) {</pre><pre>          <span class="cm-variable">disconnect</span>();</pre><pre>          <span class="cm-variable">disconnect</span> = <span class="cm-atom">undefined</span>;</pre><pre>        }</pre><pre>      }</pre><pre>    };</pre><pre>  }</pre><pre>  <span class="cm-comment">/**</span></pre><pre>   <span class="cm-comment">* Tells other libraries that know about observables that we are one.</span></pre><pre>   <span class="cm-comment">*</span></pre><pre>   <span class="cm-comment">* https://github.com/tc39/proposal-observable#observable</span></pre><pre>   <span class="cm-comment">*/</span> [<span class="cm-variable">$observable</span>]() {</pre><pre>    <span class="cm-keyword">return</span> <span class="cm-variable">this</span>;</pre><pre>  }</pre><pre>}</pre><pre> </pre><pre><span class="cm-keyword">function</span> <span class="cm-variable">_wrapWithObserver</span>(<span class="cm-variable">listener</span>) {</pre><pre>  <span class="cm-keyword">if</span>(<span class="cm-keyword">typeof</span> <span class="cm-variable">listener</span> === <span class="cm-string">'function'</span>) {</pre><pre>    <span class="cm-keyword">return</span> {</pre><pre>      <span class="cm-variable">next</span>: <span class="cm-variable">listener</span></pre><pre>    };</pre><pre>  } <span class="cm-keyword">else</span> {</pre><pre>    <span class="cm-keyword">return</span> <span class="cm-variable">listener</span>;</pre><pre>  }</pre><pre>}</pre></div></div></div></div></div></div></div><pre class="web-developer-original">/** @license
+ *  Copyright 2016 - present The Material Motion Authors. All Rights Reserved.
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ *  use this file except in compliance with the License. You may obtain a copy
+ *  of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ *  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ *  License for the specific language governing permissions and limitations
+ *  under the License.
+ */
+"use strict";
+
+
+/** @license for symbol-observable:
+ * The MIT License (MIT)
+ *
+ * Copyright (c) Sindre Sorhus &lt;sindresorhus@gmail.com&gt; (sindresorhus.com)
+ * Copyright (c) Ben Lesh &lt;ben@benlesh.com&gt;
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+var $observable = (
+  () =&gt; {
+  var root;
+
+  if (typeof self !== 'undefined') {
+    root = self;
+  } else if (typeof window !== 'undefined') {
+    root = window;
+  } else if (typeof global !== 'undefined') {
+    root = global;
+  } else if (typeof module !== 'undefined') {
+    root = module;
+  } else {
+    root = Function('return this')();
+  }
+
+  var result;
+  var Symbol = root.Symbol;
+
+  if (typeof Symbol === 'function') {
+    if (Symbol.observable) {
+    result = Symbol.observable;
+    } else {
+    result = Symbol('observable');
+    Symbol.observable = result;
+    }
+  } else {
+    result = '@@observable';
+  }
+
+  return result;
+  }
+)();
+
+/**
+ * Observable is a standard interface that's useful for modeling multiple,
+ * asynchronous events.
+ *
+ * IndefiniteObservable is a minimalist implementation of a subset of the TC39
+ * Observable proposal.  It is indefinite because it will never call `complete`
+ * or `error` on the provided observer.
+ */
+class IndefiniteObservable {
+  /**
+   * The provided function should receive an observer and connect that
+   * observer's `next` method to an event source (for instance,
+   * `element.addEventListener('click', observer.next)`).
+   *
+   * It must return a function that will disconnect the observer from the event
+   * source.
+   */
+  constructor(connect) {
+    this._connect = connect;
+  }
+  /**
+   * `subscribe` uses the function supplied to the constructor to connect an
+   * observer to an event source.  Each observer is connected independently:
+   * each call to `subscribe` calls `connect` with the new observer.
+   *
+   * To disconnect the observer from the event source, call `unsubscribe` on the
+   * returned subscription.
+   *
+   * Note: `subscribe` accepts either a function or an object with a
+   * next method.
+   */
+  subscribe(observerOrNext) {
+    const observer = _wrapWithObserver(observerOrNext);
+    let disconnect = this._connect(observer);
+    return {
+      unsubscribe() {
+        if (disconnect) {
+          disconnect();
+          disconnect = undefined;
+        }
+      }
+    };
+  }
+  /**
+   * Tells other libraries that know about observables that we are one.
+   *
+   * https://github.com/tc39/proposal-observable#observable
+   */
+  [$observable]() {
+    return this;
+  }
+}
+
+function _wrapWithObserver(listener) {
+  if (typeof listener === 'function') {
+    return {
+      next: listener
+    };
+  }
+  else {
+    return listener;
+  }
+}
+
+</pre></div><div class="web-developer-separator"></div><h3 id="javascript-4"><i class="icon-collapse-alt"></i><a href="data:text/javascript;base64,IDxzY3JpcHQgdHlwZT0idGV4dC9qYXZhc2NyaXB0Ij4NCiAgICAvLzwhW0NEQVRBWw0KICAgIChmdW5jdGlvbigpew0KICAgICAgd2luZG93Ll9jZl9jaGxfb3B0PXsNCiAgICAgICAgY3ZJZDogIjIiLA0KICAgICAgICBjVHlwZTogImludGVyYWN0aXZlIiwNCiAgICAgICAgY05vdW5jZTogIjUwMDgxIiwNCiAgICAgICAgY1JheTogIjY0MGY5NTE3OWJlZjNmYWUiLA0KICAgICAgICBjSGFzaDogImYxNDUzM2Y0NDFjMzI5NyIsDQogICAgICAgIGNGUFd2OiAiYiIsDQogICAgICAgIGNUVGltZU1zOiAiNDAwMCIsDQogICAgICAgIGNMdDogIm4iLA0KICAgICAgICBjUnE6IHsNCiAgICAgICAgICBydTogImFIUjBjRG92TDJGd2FTNXZibVYwWVhBdVkyOXRMeW89IiwNCiAgICAgICAgICByYTogIlkzVnliQzgzTGpjMExqQT0iLA0KICAgICAgICAgIHJtOiAiUjBWVSIsDQogICAgICAgICAgZDogInBPOC84RGZRcFFnV2FXVksvc0lzVld2elRpUGUxYmhEZFpLcFBydXFRT2w0bjNTNEg2U2dNdWFrY1N5ZG54NUc1a3dUR0dta05rRXVqQUxvQUZTL1VNRzg3SFlSbStobUJIS0VPb1hWa01PYkVCMlRwbkhWNHhCN0VjandzNWZ0Tm1FdDk3dHNnV3U0Nm9GZFQwSWwwZUJpQlVCa0tXejA2NkdreEhHTVEvcmNzcElVWWcyc1dFT3NCbHBnV2dDQUdpNTRiUGN0RG5FTHJuZ1h1MjFLRzJKbFgwWUZsQjR5VDVsREJJNzc4U0pZaW1oR29KSmJMN0ZBdDZBUTBiWUprMEkwQ0dEV2c2SVdxTE9lNkNROU5VM3gzRUJRck8yck0vNUdVSm1vOTExOXNEeGFOaloyRlBTL1BROUtYdHhzYXlyWWFJS0JEbW5VV21GK3d5cy85cW1KYUdkd2FQbjNTTVVzWjBEWlVTQzR3Nml3YkJaUGpoSmdUTENsN0RDcTRVOTZRTVZZZlprelVNcE44MnZISDYxcjFWTW4xRHVIRk0vWlE1Z2NYSGsrZU5jbDlKb2Q3aGlyaHhKd2NLc0xEcVJ0U2xTbUluTDhxVE1rMXYwSTRhN2x4QkNuSGk2QVRWSjFtT2w2S3NhTGhJMjY4L1grbE9hNDJaNzVPUEZCbGFDRlJFejlFdDVmMHBTUkNCblJFR3c2dGlIVFdxREx6dXhsZHpHL0RVNGQ3SzdkblRqTWNnc1g3NFZuUWZFRm4zQSttNTRBV2Z1ZXd1cUJabkxya1U3N2lQbEozRm5EeGFvdHQ4NFg5akw4d055M0ZHQWVQVUd5aFY4Wjh0aUV2aWx3bjJGdGNhTi9VcGxzMWZWMThSbnlGQmo1NGlSamxzMlpvdDNhSmRCdkRTekxLZ0pxWFBHTWFkVU9kT3NTTE5MUmJyWGdKbFV0TWEzeUJLRzFLQUhMT1JBYmF4QnVDZmtoUG1sU3p5ZE0vMERHc3RtblBPdUJENU9RMEQ3b2l1aVBZWTd0VWNFWitpYTlUMEhDMmY3NVBUZ1lTYXU5QXAwNDIyeGs3Mmh1UzkybmJWTEhzN3VSRHE1LzZRa0ZPT2xFdWxlRlZZK0F3V1dHd3JEbXhDVmU3Vkt1RVp0clNzWGV3QVNOb1FZWU04bWRNaXFzbVhzME4yNS9WZEFqaUQ1NnVoTnY1NHdKZ3MrR1FOWVE4YXZvQVk2dG9rdjUvR2N4K210OCtXTT0iLA0KICAgICAgICAgIHQ6ICJNVFl4T0RVNU9EZzBPUzR5TlRBd01EQT0iLA0KICAgICAgICAgIG06ICIrTmM1NHQ5aTlacDlNKzVTS0U3NTcrYXI0clhRQ3dGdVY5N0d5c2tqTUtjPSIsDQogICAgICAgICAgaTE6ICJwWGllcVRsR2ZMU3FINExFVkFLZ1NRPT0iLA0KICAgICAgICAgIGkyOiAiaFRXeU80cHJHeUFmQzRRaTNNWkh0QT09IiwNCiAgICAgICAgICB6aDogIk5oMTdRaW1yZzFrK1NTaFo2RGhvV1h0bWdNWjRqdXMwZDVCUU5tV2I4Wlk9IiwNCiAgICAgICAgICB1aDogInp1K2NRZ2ljYzVyRjZROEhIVEpoZEdDRDNRVmtqZXRwa24rUVhHTXBaQlU9IiwNCiAgICAgICAgICBoaDogIjJHOFZFZy9hUGdDZC9rcXZYUHMrazNvRmY5bTAwMzJwZUhUamFLYm91N0E9IiwNCiAgICAgICAgfQ0KICAgICAgfTsNCiAgICB9KCkpOw0KICAgIC8vXV0+DQogICAgPC9zY3JpcHQ+">data:text/javascript;base64,IDxzY3JpcHQgdHlwZT0idG...sNCiAgICB9KCkpOw0KICAgIC8vXV0+DQogICAgPC9zY3JpcHQ+</a></h3><div class="web-developer-document"><pre class="web-developer-syntax-highlight" data-line-numbers="true" data-type="javascript" style="display: none;"> &lt; script type = "text/javascript" &gt;
+ //&lt;![CDATA[
+ (function() {
+   window._cf_chl_opt = {
+     cvId: "2",
+     cType: "interactive",
+     cNounce: "50081",
+     cRay: "640f95179bef3fae",
+     cHash: "f14533f441c3297",
+     cFPWv: "b",
+     cTTimeMs: "4000",
+     cLt: "n",
+     cRq: {
+       ru: "aHR0cDovL2FwaS5vbmV0YXAuY29tLyo=",
+       ra: "Y3VybC83Ljc0LjA=",
+       rm: "R0VU",
+       d: "pO8/8DfQpQgWaWVK/sIsVWvzTiPe1bhDdZKpPruqQOl4n3S4H6SgMuakcSydnx5G5kwTGGmkNkEujALoAFS/UMG87HYRm+hmBHKEOoXVkMObEB2TpnHV4xB7Ecjws5ftNmEt97tsgWu46oFdT0Il0eBiBUBkKWz066GkxHGMQ/rcspIUYg2sWEOsBlpgWgCAGi54bPctDnELrngXu21KG2JlX0YFlB4yT5lDBI778SJYimhGoJJbL7FAt6AQ0bYJk0I0CGDWg6IWqLOe6CQ9NU3x3EBQrO2rM/5GUJmo9119sDxaNjZ2FPS/PQ9KXtxsayrYaIKBDmnUWmF+wys/9qmJaGdwaPn3SMUsZ0DZUSC4w6iwbBZPjhJgTLCl7DCq4U96QMVYfZkzUMpN82vHH61r1VMn1DuHFM/ZQ5gcXHk+eNcl9Jod7hirhxJwcKsLDqRtSlSmInL8qTMk1v0I4a7lxBCnHi6ATVJ1mOl6KsaLhI268/X+lOa42Z75OPFBlaCFREz9Et5f0pSRCBnREGw6tiHTWqDLzuxldzG/DU4d7K7dnTjMcgsX74VnQfEFn3A+m54AWfuewuqBZnLrkU77iPlJ3FnDxaott84X9jL8wNy3FGAePUGyhV8Z8tiEvilwn2FtcaN/Upls1fV18RnyFBj54iRjls2Zot3aJdBvDSzLKgJqXPGMadUOdOsSLNLRbrXgJlUtMa3yBKG1KAHLORAbaxBuCfkhPmlSzydM/0DGstmnPOuBD5OQ0D7oiuiPYY7tUcEZ+ia9T0HC2f75PTgYSau9Ap0422xk72huS92nbVLHs7uRDq5/6QkFOOlEuleFVY+AwWWGwrDmxCVe7VKuEZtrSsXewASNoQYYM8mdMiqsmXs0N25/VdAjiD56uhNv54wJgs+GQNYQ8avoAY6tokv5/Gcx+mt8+WM=",
+       t: "MTYxODU5ODg0OS4yNTAwMDA=",
+       m: "+Nc54t9i9Zp9M+5SKE757+ar4rXQCwFuV97GyskjMKc=",
+       i1: "pXieqTlGfLSqH4LEVAKgSQ==",
+       i2: "hTWyO4prGyAfC4Qi3MZHtA==",
+       zh: "Nh17Qimrg1k+SShZ6DhoWXtmgMZ4jus0d5BQNmWb8ZY=",
+       uh: "zu+cQgicc5rF6Q8HHTJhdGCD3QVkjetpkn+QXGMpZBU=",
+       hh: "2G8VEg/aPgCd/kqvXPs+k3oFf9m0032peHTjaKbou7A=",
+     }
+   };
+ }());
+ //]]&gt;
+ &lt;
+ /script&gt;</pre><div class="CodeMirror"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 6.1875px; left: 32.1875px;"><textarea wrap="off" autocorrect="off" autocapitalize="off" style="position: absolute; padding: 0px; width: 1px; height: 1em;"></textarea></div><div class="CodeMirror-scrollbar" style="display: none;"><div class="CodeMirror-scrollbar-inner"></div></div><div class="CodeMirror-scroll cm-s-dark" tabindex="-1"><div style="position: relative;"><div style="position: relative; top: 0px;"><div class="CodeMirror-gutter" style="height: 610px;"><div class="CodeMirror-gutter-text"><pre>1</pre><pre>2</pre><pre>3</pre><pre>4</pre><pre>5</pre><pre>6</pre><pre>7</pre><pre>8</pre><pre>9</pre><pre>10</pre><pre>11</pre><pre>12</pre><pre>13</pre><pre>14</pre><pre>15</pre><pre>16</pre><pre>17</pre><pre>18</pre><pre>19</pre><pre>20</pre><pre>21</pre><pre>22</pre><pre>23</pre><pre>24</pre><pre>25</pre><pre>26</pre><pre>27</pre><pre>28</pre><pre>29</pre><pre>30</pre></div></div><div class="CodeMirror-lines"><div style="position: relative; z-index: 0; outline: none; min-width: 6813px; margin-left: 26px;"><div style="position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden;"></div><pre class="CodeMirror-cursor" style="top: 0px; left: 0px;">&nbsp;</pre><pre class="CodeMirror-cursor" style="visibility: hidden; left: 6812px;">&nbsp;</pre><div style="position: relative; z-index: -1; display: none;"></div><div style=""><pre> &lt; <span class="cm-variable">script</span> <span class="cm-variable">type</span> = <span class="cm-string">"text/javascript"</span> &gt;</pre><pre> <span class="cm-comment">//&lt;![CDATA[</span></pre><pre> (<span class="cm-keyword">function</span>() {</pre><pre>   <span class="cm-variable">window</span>.<span class="cm-property">_cf_chl_opt</span> = {</pre><pre>     <span class="cm-property">cvId</span>: <span class="cm-string">"2"</span>,</pre><pre>     <span class="cm-property">cType</span>: <span class="cm-string">"interactive"</span>,</pre><pre>     <span class="cm-property">cNounce</span>: <span class="cm-string">"50081"</span>,</pre><pre>     <span class="cm-property">cRay</span>: <span class="cm-string">"640f95179bef3fae"</span>,</pre><pre>     <span class="cm-property">cHash</span>: <span class="cm-string">"f14533f441c3297"</span>,</pre><pre>     <span class="cm-property">cFPWv</span>: <span class="cm-string">"b"</span>,</pre><pre>     <span class="cm-property">cTTimeMs</span>: <span class="cm-string">"4000"</span>,</pre><pre>     <span class="cm-property">cLt</span>: <span class="cm-string">"n"</span>,</pre><pre>     <span class="cm-property">cRq</span>: {</pre><pre>       <span class="cm-property">ru</span>: <span class="cm-string">"aHR0cDovL2FwaS5vbmV0YXAuY29tLyo="</span>,</pre><pre>       <span class="cm-property">ra</span>: <span class="cm-string">"Y3VybC83Ljc0LjA="</span>,</pre><pre>       <span class="cm-property">rm</span>: <span class="cm-string">"R0VU"</span>,</pre><pre>       <span class="cm-property">d</span>: <span class="cm-string">"pO8/8DfQpQgWaWVK/sIsVWvzTiPe1bhDdZKpPruqQOl4n3S4H6SgMuakcSydnx5G5kwTGGmkNkEujALoAFS/UMG87HYRm+hmBHKEOoXVkMObEB2TpnHV4xB7Ecjws5ftNmEt97tsgWu46oFdT0Il0eBiBUBkKWz066GkxHGMQ/rcspIUYg2sWEOsBlpgWgCAGi54bPctDnELrngXu21KG2JlX0YFlB4yT5lDBI778SJYimhGoJJbL7FAt6AQ0bYJk0I0CGDWg6IWqLOe6CQ9NU3x3EBQrO2rM/5GUJmo9119sDxaNjZ2FPS/PQ9KXtxsayrYaIKBDmnUWmF+wys/9qmJaGdwaPn3SMUsZ0DZUSC4w6iwbBZPjhJgTLCl7DCq4U96QMVYfZkzUMpN82vHH61r1VMn1DuHFM/ZQ5gcXHk+eNcl9Jod7hirhxJwcKsLDqRtSlSmInL8qTMk1v0I4a7lxBCnHi6ATVJ1mOl6KsaLhI268/X+lOa42Z75OPFBlaCFREz9Et5f0pSRCBnREGw6tiHTWqDLzuxldzG/DU4d7K7dnTjMcgsX74VnQfEFn3A+m54AWfuewuqBZnLrkU77iPlJ3FnDxaott84X9jL8wNy3FGAePUGyhV8Z8tiEvilwn2FtcaN/Upls1fV18RnyFBj54iRjls2Zot3aJdBvDSzLKgJqXPGMadUOdOsSLNLRbrXgJlUtMa3yBKG1KAHLORAbaxBuCfkhPmlSzydM/0DGstmnPOuBD5OQ0D7oiuiPYY7tUcEZ+ia9T0HC2f75PTgYSau9Ap0422xk72huS92nbVLHs7uRDq5/6QkFOOlEuleFVY+AwWWGwrDmxCVe7VKuEZtrSsXewASNoQYYM8mdMiqsmXs0N25/VdAjiD56uhNv54wJgs+GQNYQ8avoAY6tokv5/Gcx+mt8+WM="</span>,</pre><pre>       <span class="cm-property">t</span>: <span class="cm-string">"MTYxODU5ODg0OS4yNTAwMDA="</span>,</pre><pre>       <span class="cm-property">m</span>: <span class="cm-string">"+Nc54t9i9Zp9M+5SKE757+ar4rXQCwFuV97GyskjMKc="</span>,</pre><pre>       <span class="cm-property">i1</span>: <span class="cm-string">"pXieqTlGfLSqH4LEVAKgSQ=="</span>,</pre><pre>       <span class="cm-property">i2</span>: <span class="cm-string">"hTWyO4prGyAfC4Qi3MZHtA=="</span>,</pre><pre>       <span class="cm-property">zh</span>: <span class="cm-string">"Nh17Qimrg1k+SShZ6DhoWXtmgMZ4jus0d5BQNmWb8ZY="</span>,</pre><pre>       <span class="cm-property">uh</span>: <span class="cm-string">"zu+cQgicc5rF6Q8HHTJhdGCD3QVkjetpkn+QXGMpZBU="</span>,</pre><pre>       <span class="cm-property">hh</span>: <span class="cm-string">"2G8VEg/aPgCd/kqvXPs+k3oFf9m0032peHTjaKbou7A="</span>,</pre><pre>     }</pre><pre>   };</pre><pre> }());</pre><pre> <span class="cm-comment">//]]&gt;</span></pre><pre> &lt;</pre><pre> <span class="cm-string-2">/script&gt;</span></pre></div></div></div></div></div></div></div><pre class="web-developer-original"> &lt;script type="text/javascript"&gt;
+    //&lt;![CDATA[
+    (function(){
+      window._cf_chl_opt={
+        cvId: "2",
+        cType: "interactive",
+        cNounce: "50081",
+        cRay: "640f95179bef3fae",
+        cHash: "f14533f441c3297",
+        cFPWv: "b",
+        cTTimeMs: "4000",
+        cLt: "n",
+        cRq: {
+          ru: "aHR0cDovL2FwaS5vbmV0YXAuY29tLyo=",
+          ra: "Y3VybC83Ljc0LjA=",
+          rm: "R0VU",
+          d: "pO8/8DfQpQgWaWVK/sIsVWvzTiPe1bhDdZKpPruqQOl4n3S4H6SgMuakcSydnx5G5kwTGGmkNkEujALoAFS/UMG87HYRm+hmBHKEOoXVkMObEB2TpnHV4xB7Ecjws5ftNmEt97tsgWu46oFdT0Il0eBiBUBkKWz066GkxHGMQ/rcspIUYg2sWEOsBlpgWgCAGi54bPctDnELrngXu21KG2JlX0YFlB4yT5lDBI778SJYimhGoJJbL7FAt6AQ0bYJk0I0CGDWg6IWqLOe6CQ9NU3x3EBQrO2rM/5GUJmo9119sDxaNjZ2FPS/PQ9KXtxsayrYaIKBDmnUWmF+wys/9qmJaGdwaPn3SMUsZ0DZUSC4w6iwbBZPjhJgTLCl7DCq4U96QMVYfZkzUMpN82vHH61r1VMn1DuHFM/ZQ5gcXHk+eNcl9Jod7hirhxJwcKsLDqRtSlSmInL8qTMk1v0I4a7lxBCnHi6ATVJ1mOl6KsaLhI268/X+lOa42Z75OPFBlaCFREz9Et5f0pSRCBnREGw6tiHTWqDLzuxldzG/DU4d7K7dnTjMcgsX74VnQfEFn3A+m54AWfuewuqBZnLrkU77iPlJ3FnDxaott84X9jL8wNy3FGAePUGyhV8Z8tiEvilwn2FtcaN/Upls1fV18RnyFBj54iRjls2Zot3aJdBvDSzLKgJqXPGMadUOdOsSLNLRbrXgJlUtMa3yBKG1KAHLORAbaxBuCfkhPmlSzydM/0DGstmnPOuBD5OQ0D7oiuiPYY7tUcEZ+ia9T0HC2f75PTgYSau9Ap0422xk72huS92nbVLHs7uRDq5/6QkFOOlEuleFVY+AwWWGwrDmxCVe7VKuEZtrSsXewASNoQYYM8mdMiqsmXs0N25/VdAjiD56uhNv54wJgs+GQNYQ8avoAY6tokv5/Gcx+mt8+WM=",
+          t: "MTYxODU5ODg0OS4yNTAwMDA=",
+          m: "+Nc54t9i9Zp9M+5SKE757+ar4rXQCwFuV97GyskjMKc=",
+          i1: "pXieqTlGfLSqH4LEVAKgSQ==",
+          i2: "hTWyO4prGyAfC4Qi3MZHtA==",
+          zh: "Nh17Qimrg1k+SShZ6DhoWXtmgMZ4jus0d5BQNmWb8ZY=",
+          uh: "zu+cQgicc5rF6Q8HHTJhdGCD3QVkjetpkn+QXGMpZBU=",
+          hh: "2G8VEg/aPgCd/kqvXPs+k3oFf9m0032peHTjaKbou7A=",
+        }
+      };
+    }());
+    //]]&gt;
+    &lt;/script&gt;</pre></div><div class="web-developer-separator"></div></div>
+
+<script src="/common/javascript/jquery/jquery.js"></script>
+<script src="/common/javascript/bootstrap/collapse.js"></script>
+<script src="/common/javascript/bootstrap/dropdown.js"></script>
+<script src="/common/javascript/codemirror/codemirror.js"></script>
+<script src="/common/javascript/codemirror/javascript.js"></script>
+<script src="/common/javascript/common.js"></script>
+<script src="/javascript/common.js"></script>
+<script src=/generated/javascript/beautify/beautify.js"></script>
+<script src="/generated/javascript/view-javascript.js"></script>
+
+
+
+
+</body></html>
