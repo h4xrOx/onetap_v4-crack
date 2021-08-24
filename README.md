@@ -10,9 +10,6 @@ api &amp; source menu base import imgui from imgui-js https://github.com/flyover
 the "source of onetapv3 or onetapv4 is hex, to get the "source" the hex out of the dll we use  https://jonripley.com/windows/Software/bin2h/
 to generate an api key my in chrome; using  dev-tools redux, react in console:
 
-*in my honest opinion; https://api.github.com/users/es3n1n/events << this guy neverlose dev, also known for otc crack, and gamesense crack.. didnt crack anything, he is just onetap dev, and uses custom js and lua to make replica recreations using the same cheat base and api... just delivering you different menus, different js, different luas. actually this isnt an opinion... its fact. money grabber, giving you guys what you cry for. dont buy it.*
-
-https://github.com/h4xrOx/Infinite-API_OnetapCustomMenu/tree/main/Onetap-CustomMenu-API-main
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 export default class Authentication {
 #auth0Proxy
@@ -34,4 +31,8 @@ this.#auth0UserProxy = new Auth0UserProxy()
 }
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-#h4xr0x.cc  loaders for neverlose, gamesense.is, and onetap to be released on https://h4xr0x.cc soon https://discord.gg/CSN2tJMtMv    add me: h4xr0x#1337 (this is for h4xr0x.cc members only, always free, we are not a marketplace. greedy pasting skids sell pasted shit.
+*#h4xr0x.cc  loaders for neverlose, gamesense.is, and onetap to be released on https://h4xr0x.cc soon https://discord.gg/CSN2tJMtMv    add me: h4xr0x#1337 (this is for h4xr0x.cc members only, always free, we are not a marketplace. greedy pasting skids sell pasted shit.*
+
+in my honest opinion; https://api.github.com/users/es3n1n/events << this guy neverlose dev, also known for otc crack, and gamesense crack.. didnt crack anything, he is just onetap dev, and uses custom js and lua to make replica recreations using the same cheat base and api... just delivering you different menus, different js, different luas. actually this isnt an opinion... its fact. money grabber, giving you guys what you cry for. dont buy it.
+
+https://github.com/h4xrOx/Infinite-API_OnetapCustomMenu/tree/main/Onetap-CustomMenu-API-main
