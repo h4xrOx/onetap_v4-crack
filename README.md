@@ -1,4 +1,4 @@
-# onetap v4 crack
+# onetap v4 crack https://discord.gg/AXCtxVH4PB
 
 people asking me for otv4 source "bin2h" (meaning binary to hex) large hexadecimal array deleted all the dlls from the project and the patcher.idp and it still compiles with all the features, fixing the cheat for new offsets and updates , modifying watermarks, but there is no feature code as there is no onetap source, only “patching” source. theres no features in the code, although it compiles with them..... the segment framework and game framework; yeah; the source for the framework is like a watermark. I cant get this from the dll; its probably impossible to get the source. its a matter of the dll interacts with the api; onetap js api is opensource. nevelrose, onetap, gamesense.is zapped.cc novahack, man all these are really the same. full documentation for the api; really the crack is whitelisted ip, and my script here to generate /admin/api_key=
 
